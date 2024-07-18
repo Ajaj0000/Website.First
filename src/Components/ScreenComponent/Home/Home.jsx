@@ -19,7 +19,7 @@ function Home() {
             <ChooseUs />
             <Gallery />
             <VideoGellery />
-            {/* <Testimonial /> */}
+            <Testimonial />
             <Footer/> 
         </>
     )

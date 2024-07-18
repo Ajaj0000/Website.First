@@ -20,7 +20,7 @@ function Routing() {
                 <Route path="/video" element={<VideoSection />} />
                 <Route path="/contect" element={<ContectUs />} />
                 <Route path="/blog" element={<BlogMain />} />
-                <Route path="/service" element={<DetailMain />} />
+                <Route path="/service/:id" element={<DetailMain />} />
                 <Route path="/blogDetail" element={<BlogDetailMainSection />} />
                 <Route path="/blogCategory" element={<BlogCategoryMain />} />
             </Routes>

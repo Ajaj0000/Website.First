@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoCall, IoSearchOutline } from "react-icons/io5";
 import { IoIosMail, IoMdArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -63,6 +63,24 @@ function Navbar() {
     //         path: '/'
     //     }
     // ]
+
+    const [service, setService] = useState([])
+
+    const handelApiData= async()=>{
+        const responce = await fetch('http://localhost:8090/v1/api/website/getServiceListInKeyValue')
+        const getResponce = await responce.json()
+        setService(getResponce.responsePacket);
+        console.log(service , 'data');
+    };
+
+    useEffect(()=>{
+        handelApiData();
+    },[]);
+
+
+
+    console.log(service, 'responce');
+
     const dropContent = [
         {
             id: 'b1',
@@ -146,17 +164,19 @@ function Navbar() {
                                 <Link>
                                     <li className="service1">Service<span><IoMdArrowDropdown /></span>
                                         <div className="dropContent-lite">
+
                                             {
-                                                dropContent.map((itm) => {
+                                                service.map((itm) => {
                                                     return (
                                                         <>
-                                                            <Link to={itm.path}>
-                                                                <p key={itm.id}>{itm.name}</p>
+                                                            <Link to={`/service/${itm.key}`}>
+                                                                <p key={itm.key}>{itm.value}</p>
                                                             </Link>
                                                         </>
                                                     )
                                                 })
                                             }
+                                            
                                         </div>
                                     </li>
 

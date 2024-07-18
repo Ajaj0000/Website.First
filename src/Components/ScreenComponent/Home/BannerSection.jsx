@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import 'animate.css';
 import ResImg from '../../../Assets/images/blog/Untitled-design-2023-04-28T135934.488.webp';
 
 
 function BannerSection() {
+
+    
+    
+
+
+
     return (
         <>
             <section id="banner">
