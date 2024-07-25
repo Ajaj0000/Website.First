@@ -8,19 +8,25 @@ import { Gallery } from "./Gallery";
 import { VideoGellery } from "./VideosGellery";
 import { Testimonial } from "./Testimonial";
 import { Footer } from "../../CommonComponents/Footer";
+import { Test } from "../../CommonComponents/commonTesi";
+import { Carusal } from "../../../Routing/practice";
 
 function Home() {
     return (
         <>
             <Navbar />
-             <BannerSection />
+            <BannerSection />
             <Client />
             <Service />
             <ChooseUs />
             <Gallery />
             <VideoGellery />
-            <Testimonial />
-            <Footer/> 
+            <div className="colab">
+                <Testimonial />
+                <Test />
+            </div>
+            {/* <Carusal/> */}
+            <Footer />
         </>
     )
 }

@@ -1,7 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function ChooseUs() {
+
+    const [name, setName] = useState()
+    const [email, setEmail] = useState()
+    const [message, setMessage] = useState()
+    const [subject, setSubject] = useState()
+    const [mobileNo, setMobileNo] = useState()
+
+    const handelSubmit = async (e) => {
+        e.preventDefault();
+
+        const responce = await fetch("http://localhost:8090/v1/api/website/contactUsForm", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'name': name,
+                'email': email,
+                'message': message,
+                'subject': subject,
+                'mobileNo': mobileNo
+
+            })
+        })
+
+        const getres = await responce.json();
+        console.log(getres)
+        if (getres) {
+            alert('successfully added')
+        }
+
+    };
+
     return (
         <>
             <section id="uniqueWork">
@@ -22,23 +55,30 @@ function ChooseUs() {
                         </div>
                         <div className="chet-with-us">
                             <div className="chet-form">
-                                <article>
-                                    <label htmlFor="name">Your name</label>
-                                    <input type="text" />
-                                </article>
-                                <article>
-                                    <label htmlFor="email">Email</label>
-                                    <input type="text" />
-                                </article>
-                                <article>
-                                    <label htmlFor="subject">Subject</label>
-                                    <input type="text" />
-                                </article>
-                                <article>
-                                    <label htmlFor="massage">Your message</label>
-                                    <input type="text" />
-                                </article>
-                                <button>Submit</button>
+                                <form onSubmit={handelSubmit}>
+                                    <article>
+                                        <label htmlFor="name">Your name</label>
+                                        <input type="text" name="name" required onChange={(e) => { setName(e.target.value) }} />
+                                    </article>
+                                    <article>
+                                        <label htmlFor="email">Email</label>
+                                        <input type="text" name="email" required onChange={(e) => { setEmail(e.target.value) }} />
+                                    </article>
+                                    <article>
+                                        <label htmlFor="subject">Subject</label>
+                                        <input type="text" name="subject" required onChange={(e) => { setSubject(e.target.value) }} />
+                                    </article>
+                                    <article>
+                                        <label htmlFor="massage">Your message</label>
+                                        <input type="text" name="message" required onChange={(e) => { setMessage(e.target.value) }} />
+                                    </article>
+                                    <article>
+                                        <label htmlFor="mobileNo">Mobile No</label>
+                                        <input type="text" required name="mobileNo" maxLength='13' minLength='10' onChange={(e) => { setMobileNo(e.target.value) }} />
+                                    </article>
+                                    <button type="submit">Submit</button>
+                                </form>
+
                             </div>
                             <p>Ready to Start ? <Link>Let's Talk</Link></p>
                         </div>

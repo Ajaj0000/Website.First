@@ -20,11 +20,8 @@ function Service() {
         }
     }, [id]);
 
-    console.log(ServiceDetail,'serviceDetail');
+    console.log(ServiceDetail, 'serviceDetail');
 
-
-    const { getId } = useParams()
-    // const getItm = 
 
     return (
         <>

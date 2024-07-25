@@ -1,3 +1,6 @@
+@import url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/library.css");
+@import url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/variables.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -261,6 +264,108 @@
   font-weight: 600;
 }
 
+
+/* doctor banner */
+
+.doctor {
+  margin: 10px 0px;
+  border-radius: 10px;
+  height: 500px;
+}
+
+.d-item1 {
+  background-image: url('./Assets/images/New\ Images/slider1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+}
+
+.d-item2 {
+  background-image: url('./Assets/images/New\ Images/slider2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+}
+
+.d-item3 {
+  background-image: url('./Assets/images/New\ Images/slider3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+}
+
+.doctor .doctor-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  margin: auto;
+}
+
+.doctor .meet-doctor {
+  text-align: center;
+}
+
+.doctor .meet-doctor h3 {
+  color: white;
+  font-weight: 300;
+  margin: 10px 0px;
+}
+
+.doctor .meet-doctor h1{
+  color: white;
+  margin: 10px 0px;
+  font-size: 4.3rem;
+}
+
+.doctor .meet-doctor button{
+  background: #a5c422;
+    border: 0;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: inherit;
+    font-weight: 500;
+    padding: 14px 20px;
+    transition: transform 0.1s ease-in;
+    margin: 10px 0px;
+}
+
+.d-item2 .meet-doctor button{
+  background: #333;
+    border: 0;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: inherit;
+    font-weight: 500;
+    padding: 14px 20px;
+    transition: transform 0.1s ease-in;
+    margin: 10px 0px;
+}
+.d-item3 .meet-doctor button{
+  background: #2461ac;
+    border: 0;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: inherit;
+    font-weight: 500;
+    padding: 14px 20px;
+    transition: transform 0.1s ease-in;
+    margin: 10px 0px;
+}
+
+.doctor .meet-doctor button:hover{
+  background-color: white;
+  color: black;
+  transform: translateY(10px);
+  transition: all ease .4s;
+}
+
 /* clinet info */
 #clientSection {
   background-color: #f09721;
@@ -458,7 +563,7 @@
 
 #uniqueWork .work .get-center .chet-with-us .chet-form article input {
   padding: 5px 8px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   width: 100%;
   outline: none;
 }
@@ -672,6 +777,120 @@
 .swiper-pagination {
   margin-bottom: -12px;
 }
+
+/* testimonial */
+.testimonial-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card-list {
+  margin: 0 auto;
+  max-width: 1440px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-list .card1 {
+  background-color: transparent;
+  border: 5px solid transparent;
+  color: #333;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: top;
+  /* width: 30%; */
+  width: 100% !important;
+
+}
+
+.profile {
+  background-color: white;
+  margin: 0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.profile img {
+  display: inline-block;
+  height: 100px;
+}
+
+.profile figcaption {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.profile .name {
+  color: #252830;
+  font-size: 21px;
+}
+
+.profile .position {
+  color: #888;
+  /* Assuming @grey is #888 */
+  font-size: 13px;
+}
+
+.body {
+  background-color: #013C4D;
+  color: white;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 1px;
+  line-height: 25px;
+  padding: 25px;
+  overflow: scroll;
+  height: 200px;
+}
+
+
+
+
+/* For large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+/* For medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+/* For small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .col-sm-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+/* For extra small devices (phones, less than 768px) */
+.hidden-xs {
+  /* display: none !important; */
+}
+
+@media (min-width: 768px) {
+  .hidden-xs {
+    display: block !important;
+  }
+}
+
+
 
 
 /* footer */
@@ -1762,4 +1981,13 @@
 
 @media (min-width: 800px) and (max-width: 1000px) {
   /* CSS rules for medium devices */
+}
+
+
+
+.colab {
+  background-image: url("./Assets/images/New\ Images/slider1.jpg");
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
 }
