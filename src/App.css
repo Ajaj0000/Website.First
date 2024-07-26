@@ -880,9 +880,7 @@
 }
 
 /* For extra small devices (phones, less than 768px) */
-.hidden-xs {
-  /* display: none !important; */
-}
+
 
 @media (min-width: 768px) {
   .hidden-xs {
@@ -1565,6 +1563,12 @@
     font-size: .8rem;
   }
 
+  /* testimonial */
+
+ .testimonial4_slide p{
+  font-size: 10px !important;
+ }
+
 }
 
 @media (min-width: 600px) and (max-width: 800px) {
@@ -1976,6 +1980,7 @@
   .blogDetail-in .left-blog ul li {
     font-size: .8rem;
   }
+
 
 }
 
