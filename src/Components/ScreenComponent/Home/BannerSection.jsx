@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import 'animate.css';
-import ResImg from '../../../Assets/images/blog/Untitled-design-2023-04-28T135934.488.webp';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 function BannerSection() {
-
-
-
-
-
 
     return (
         <>
@@ -50,7 +44,7 @@ function BannerSection() {
                                     <div className="meet-doctor">
                                         <h3>AENEAN LUCTUS LOBORTIS TELLUS</h3>
                                         <h1>New Lifestyle</h1>
-                                       <Link to='/about'><button>More About Us</button></Link>
+                                        <Link to='/about'><button>More About Us</button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -71,8 +65,6 @@ function BannerSection() {
                         </div>
                     </div>
                 </Carousel>
-
-
 
                 <div className="get-appointment display-none">
                     <p className="animate__animated animate__pulse animate__infinite">Click Here To Get An <Link><span>Appointment</span></Link></p>

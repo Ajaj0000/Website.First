@@ -9,7 +9,7 @@ import { BlogMain } from "../Components/ScreenComponent/Blog/BlogMain";
 import { DetailMain } from "../Components/ScreenComponent/ServiceDetailSection/DetailMain";
 import { BlogDetailMainSection } from "../Components/ScreenComponent/Blog/BlogDetailSection/BlogDetailMainSection";
 import { BlogCategoryMain } from "../Components/ScreenComponent/Blog/BlogDetailSection/BlogCategory/BlogCategoryMain";
-import {Carusal} from './practice'
+
 
 function Routing() {
     return (
@@ -24,7 +24,6 @@ function Routing() {
                 <Route path="/service/:id" element={<DetailMain />} />
                 <Route path="/blogDetail" element={<BlogDetailMainSection />} />
                 <Route path="/blogCategory" element={<BlogCategoryMain />} />
-                <Route  path="/pr" element={<Carusal/>}/>
             </Routes>
         </>
     )

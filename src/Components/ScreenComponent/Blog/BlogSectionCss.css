@@ -87,6 +87,8 @@
 }
 
 .detail-btn p {
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
     width: fit-content;
     text-align: center;
     color: #666;
@@ -195,7 +197,7 @@
     width: 30%;
     border-radius: 10px;
     overflow: hidden;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .blog-right-inner ul li .img-lite img {

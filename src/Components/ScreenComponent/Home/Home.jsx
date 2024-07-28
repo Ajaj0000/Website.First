@@ -8,8 +8,7 @@ import { Gallery } from "./Gallery";
 import { VideoGellery } from "./VideosGellery";
 import { Testimonial } from "./Testimonial";
 import { Footer } from "../../CommonComponents/Footer";
-import { Test } from "../../CommonComponents/commonTesi";
-import { Carusal } from "../../../Routing/practice";
+
 
 function Home() {
     return (
@@ -21,11 +20,7 @@ function Home() {
             <ChooseUs />
             <Gallery />
             <VideoGellery />
-            <div className="colab">
-                <Testimonial />
-                <Test />
-            </div>
-            {/* <Carusal/> */}
+            <Testimonial />
             <Footer />
         </>
     )

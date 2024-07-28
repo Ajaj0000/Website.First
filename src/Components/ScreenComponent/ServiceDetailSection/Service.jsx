@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import assisImg from "../../../Assets/images/back-pain.webp";
 import { useParams } from "react-router-dom";
 
 function Service() {
@@ -9,7 +8,7 @@ function Service() {
 
     const handelFetch = async (id) => {
         const response = await fetch(`http://localhost:8090/v1/api/website/getServiceDetail/${id}`)
-        const getResponse = await response.json()
+        const getResponse = await response.json();
         setServiceDetail(getResponse.responsePacket)
         console.log(getResponse.responsePacket);
     };
@@ -47,12 +46,6 @@ function Service() {
                             <p>We specialise in the treatment of</p>
                             <ul>
                                 <li>{ServiceDetail.description}</li>
-                                {/* <li>Poor postural alignment and control.</li>
-                                <li>Shoulder and arm pain/ referred from the neck .</li>
-                                <li>Sciatica referred by the lower back or hip .</li>
-                                <li>Recurrent headache .</li>
-                                <li>Acute /chronic neck and back pain/ injuries .</li>
-                                <li>If you use prolonged mobile phone so it may affect your neck so this pain converted into your headache or neck pain .</li> */}
                             </ul>
                             <p>Core muscle group control and stability retraining .</p>
                         </div>
