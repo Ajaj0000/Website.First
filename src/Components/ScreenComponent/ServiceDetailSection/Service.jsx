@@ -6,8 +6,8 @@ function Service() {
     const { id } = useParams()
     const [ServiceDetail, setServiceDetail] = useState([]);
 
-    const handelFetch = async (id) => {
-        const response = await fetch(`http://localhost:8090/v1/api/website/getServiceDetail/${id}`)
+    const handelFetch = async (idd) => {
+        const response = await fetch(`http://localhost:8090/v1/api/website/getServiceDetail/${idd}`)
         const getResponse = await response.json();
         setServiceDetail(getResponse.responsePacket)
         console.log(getResponse.responsePacket);
@@ -53,7 +53,7 @@ function Service() {
 
                     <div className="assi-pic">
                         <div className="assis-pic-in">
-                            <img src={ServiceDetail.serviceImageUrl} alt='img' />
+                            <img src={ServiceDetail.serviceImageUrl} alt="img" />
                         </div>
                     </div>
 

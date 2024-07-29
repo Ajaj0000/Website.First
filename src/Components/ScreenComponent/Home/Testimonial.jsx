@@ -163,7 +163,7 @@ function Testimonial() {
                                                                         <img src={itm.customerImageUrl} className="img-circle img-responsive" alt="img"/>
                                                                         <p>{itm.review}</p>
                                                                         <h4>{itm.customerName}</h4>
-                                                                        <span style={{ margin: '10px 0px' }}>{getTimeDifference(itm.rating)}</span>
+                                                                        <span style={{ margin: '10px 0px' }}>{getTimeDifference(itm.ratedOnDate)}</span>
                                                                         <div className="star">
                                                                             <Rating rate={itm.rating} />
                                                                         </div>
