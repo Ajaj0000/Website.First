@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebookF, FaInstagram, FaYoutub
 import siteLogo from "../../Assets/images/cropped-Aasra-Physiotherapy-Clinic-logo-1536x549.webp";
 import { Link } from 'react-router-dom';
 import countDown from '../../Assets/images/countDown.gif';
-import companyLogo from "../../Assets/images/companylogo.png";
+// import companyLogo from "../../Assets/images/companylogo.png";
 
 function Footer() {
     return (
@@ -65,17 +65,17 @@ function Footer() {
             </div>
             <div className="bottom">
                     <div className="bottom-lite">
-                        <p>Copyright 2021 - All Rights Reserved. | Design & Development by Reliable Softtech Web Development Company in india</p>
+                        <p>Copyright 2024 - All Rights Reserved. | Design & Development by Manju IT Solution Company in india</p>
                     </div>
-                    <div className="bottom1">
+                    {/* <div className="bottom1">
                         <div className="icon">
                             <span><img src={companyLogo} alt="img" /></span>
                             <span>
-                                <h3>Optimized by xyz</h3>
+                                <h3>Optimized by </h3>
                                 <p>Turns on site high speed to be attractive for people and search engines.</p>
                             </span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
         </section>
     );

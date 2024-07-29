@@ -67,7 +67,7 @@ function BannerSection() {
                 </Carousel>
 
                 <div className="get-appointment display-none">
-                    <p className="animate__animated animate__pulse animate__infinite">Click Here To Get An <Link><span>Appointment</span></Link></p>
+                    <p className="animate__animated animate__pulse animate__infinite">Click Here To Get An <Link to='/contect'><span>Appointment</span></Link></p>
                 </div>
 
             </section>

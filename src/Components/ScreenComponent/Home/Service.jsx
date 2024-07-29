@@ -1,70 +1,31 @@
-import React from "react";
-import img1 from "../../../Assets/images/back-pain.webp";
-import img2 from '../../../Assets/images/Untitled-design-6.webp';
-import img3 from '../../../Assets/images/Untitled-design-7.webp';
-import img4 from '../../../Assets/images/Untitled-design-8.webp';
-import img5 from '../../../Assets/images/Untitled-design-9.webp';
-import img6 from '../../../Assets/images/Untitled-design-10.jpg';
-import img7 from '../../../Assets/images/Untitled-design-11.webp';
-import img8 from '../../../Assets/images/Untitled-design-12.webp';
-import img9 from '../../../Assets/images/Untitled-design-13.webp';
-import img10 from '../../../Assets/images/Untitled-design-14.webp';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 function Service() {
 
-    const serviceData = [
-        {
-            id: 'c1',
-            name: "NECK AND BACK PAIN",
-            img: img1
-        },
-        {
-            id: 'c1',
-            name: "PRE AND POST OPERATIVE CARE",
-            img: img2
-        },
-        {
-            id: 'c1',
-            name: "NEUROLOGICAL PHYSIOTHERAPY",
-            img: img3
-        },
-        {
-            id: 'c1',
-            name: "SPORTS PHYSIOTHERAPY",
-            img: img4
-        },
-        {
-            id: 'c1',
-            name: "WOMEN’S HEALTH PHYSIOTHERAPY",
-            img: img5
-        },
-        {
-            id: 'c1',
-            name: "DRY NEEDLING THERAPY",
-            img: img6
-        },
-        {
-            id: 'c1',
-            name: "GERIATRIC PHYSIOTHERAPY",
-            img: img7
-        },
-        {
-            id: 'c1',
-            name: "RADIO FREQUENCY( RF)",
-            img: img8
-        },
-        {
-            id: 'c1',
-            name: "CAVITATION FOR FAT LOSS",
-            img: img9
-        },
-        {
-            id: 'c1',
-            name: "CUPPING THERAPY",
-            img: img10
-        },
-    ]
+
+    const [data, setData] = useState([])
+    const endpoints = [
+        'http://localhost:8090/v1/api/website/getServiceDetail/1',
+        'http://localhost:8090/v1/api/website/getServiceDetail/2',
+        'http://localhost:8090/v1/api/website/getServiceDetail/3',
+        // Add more endpoints as needed
+    ];
+
+    const handleServiceData = async () => {
+        const responce = await Promise.all(endpoints.map(itm => fetch(itm)))
+        const getResponce = await Promise.all(responce.map(res => res.json()));
+        setData(getResponce)
+    };
+
+    useEffect(() => {
+        handleServiceData();
+        window.scrollTo(0,0);
+    }, []);
+
+    const verr = JSON.stringify(data)
+    console.log(verr, 'datap');
 
     return (
         <>
@@ -75,14 +36,16 @@ function Service() {
                     </div>
                     <div className="serv-in">
                         {
-                            serviceData.map((itm) => {
+                            data.map((itm) => {
                                 return (
                                     <>
-                                        <div className="cards" key={itm.id}>
-                                            <div className="card-img">
-                                                <img src={itm.img} alt="img" />
-                                            </div>
-                                            <p>{itm.name}</p>
+                                        <div className="cards" key={itm.responsePacket.recordId}>
+                                            <Link to={`/service/${itm.responsePacket.recordId}`}>
+                                                <div className="card-img">
+                                                    <img src={itm.responsePacket.serviceImageUrl} alt="img" />
+                                                </div>
+                                                <p>{itm.responsePacket.serviceName}</p>
+                                            </Link>
                                         </div>
                                     </>
                                 )

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ChooseUs() {
 
@@ -12,31 +14,47 @@ function ChooseUs() {
     const handelSubmit = async (e) => {
         e.preventDefault();
 
-        const responce = await fetch("http://localhost:8090/v1/api/website/contactUsForm", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'name': name,
-                'email': email,
-                'message': message,
-                'subject': subject,
-                'mobileNo': mobileNo
+        if(!name || !email || !message || !subject || !mobileNo){
+            toast.error('Please fill the form')
+            return;
+        };
 
+        try {
+            const responce = await fetch("http://localhost:8090/v1/api/website/contactUsForm", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'name': name,
+                    'email': email,
+                    'message': message,
+                    'subject': subject,
+                    'mobileNo': mobileNo
+    
+                })
             })
-        })
-
-        const getres = await responce.json();
-        console.log(getres)
-        if (getres) {
-            alert('successfully added')
+    
+            const getres = await responce.json();
+            
+            if (getres) {
+                toast.success('Request submitted successfully, Our team will connect you shortly');
+                setName('');
+                setEmail('');
+                setMessage('');
+                setSubject('');
+                setMobileNo('');
+                console.log(getres)
+            }
+        } catch (error) {
+            toast.error('There was an error submitting your request.' , error);
         }
-
+       
     };
 
     return (
         <>
+        <ToastContainer position="top-center"/>
             <section id="uniqueWork">
                 <div className="choice-head">
                     <div className="inner-head">
@@ -58,23 +76,23 @@ function ChooseUs() {
                                 <form onSubmit={handelSubmit}>
                                     <article>
                                         <label htmlFor="name">Your name</label>
-                                        <input type="text" name="name" required onChange={(e) => { setName(e.target.value) }} />
+                                        <input type="text" name="name" required onChange={(e) => { setName(e.target.value) }} value={name}/>
                                     </article>
                                     <article>
                                         <label htmlFor="email">Email</label>
-                                        <input type="text" name="email" required onChange={(e) => { setEmail(e.target.value) }} />
+                                        <input type="text" name="email" required onChange={(e) => { setEmail(e.target.value) }}  value={email}/>
                                     </article>
                                     <article>
                                         <label htmlFor="subject">Subject</label>
-                                        <input type="text" name="subject" required onChange={(e) => { setSubject(e.target.value) }} />
+                                        <input type="text" name="subject" required onChange={(e) => { setSubject(e.target.value) }} value={subject}/>
                                     </article>
                                     <article>
                                         <label htmlFor="massage">Your message</label>
-                                        <input type="text" name="message" required onChange={(e) => { setMessage(e.target.value) }} />
+                                        <input type="text" name="message" required onChange={(e) => { setMessage(e.target.value) }} value={message}/>
                                     </article>
                                     <article>
                                         <label htmlFor="mobileNo">Mobile No</label>
-                                        <input type="text" required name="mobileNo" maxLength='13' minLength='10' onChange={(e) => { setMobileNo(e.target.value) }} />
+                                        <input type="text" required name="mobileNo" maxLength='13' minLength='10' onChange={(e) => { setMobileNo(e.target.value) }} value={mobileNo}/>
                                     </article>
                                     <button type="submit">Submit</button>
                                 </form>

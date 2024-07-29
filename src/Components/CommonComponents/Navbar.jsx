@@ -29,90 +29,19 @@ function Navbar() {
         setShowInput(!showInput)
     }
 
-    // const pageNevigator = [
-    //     {
-    //         id: 'a1',
-    //         page: 'Home',
-    //         path: '/'
-    //     },
-    //     {
-    //         id: 'a2',
-    //         page: 'about',
-    //         path: '/'
-    //     },
-    //     {
-    //         id: 'a3',
-    //         page: 'service',
-    //         icon: <IoMdArrowDropdown />,
-    //         path: '/'
-    //     },
-    //     {
-    //         id: 'a4',
-    //         page: 'Gallery',
-    //         icon: <IoMdArrowDropdown />,
-    //         path: '/'
-    //     },
-    //     {
-    //         id: 'a5',
-    //         page: 'Blog',
-    //         path: '/'
-    //     },
-    //     {
-    //         id: 'a6',
-    //         page: 'Contect Us',
-    //         path: '/'
-    //     }
-    // ]
 
     const [service, setService] = useState([])
 
-    const handelApiData= async()=>{
+    const handelApiData = async () => {
         const responce = await fetch('http://localhost:8090/v1/api/website/getServiceListInKeyValue')
         const getResponce = await responce.json()
         setService(getResponce.responsePacket);
-        console.log(service , 'data');
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         handelApiData();
-    },[]);
+    }, []);
 
-
-
-    console.log(service, 'responce');
-
-    const dropContent = [
-        {
-            id: 'b1',
-            name: 'Neck and Back Pain',
-            path: '/service',
-        },
-        {
-            id: 'b2',
-            name: 'Pre and Post Creative Care',
-            path: '/service'
-        },
-        {
-            id: 'b3',
-            name: 'Neurological Physiotherapy',
-            path: '/service'
-        },
-        {
-            id: 'b4',
-            name: "Sports Therapist",
-            path: "/service"
-        },
-        {
-            id: "b5",
-            name: "Women's Health THerapist",
-            path: '/service'
-        },
-        {
-            id: "b6",
-            name: "Dry Needling",
-            path: '/service'
-        },
-    ]
 
     return (
         <>
@@ -134,7 +63,6 @@ function Navbar() {
                     </div>
                 </div>
 
-
                 {/* navbar */}
                 <section id="site-header">
                     <div className="site-header-inner">
@@ -144,17 +72,7 @@ function Navbar() {
 
                         <div className="site-nevigation">
                             <ul>
-                                {/* {
-                                    pageNevigator.map((itm) => {
-                                        return (
-                                            <>
-                                                <Link>
-                                                    <li key={itm.id}>{itm.page} {itm.icon ? <span>{itm.icon}</span> : ''}</li>
-                                                </Link>
-                                            </>
-                                        )
-                                    })
-                                } */}
+                            
                                 <Link to='/'>
                                     <li>Home</li>
                                 </Link>
@@ -176,7 +94,7 @@ function Navbar() {
                                                     )
                                                 })
                                             }
-                                            
+
                                         </div>
                                     </li>
 
@@ -193,7 +111,7 @@ function Navbar() {
                                     <li>Blog</li>
                                 </Link>
                                 <Link to='/contect'>
-                                    <li>Contect us</li>
+                                    <li>Contact us</li>
                                 </Link>
 
                                 <Link><li onClick={handeShowInput}><IoSearchOutline /></li></Link>
@@ -235,11 +153,11 @@ function Navbar() {
                         </Link>
                         <div className={`inner-li-div ${listToggle ? 'inner-list-toggle' : ''}`}>
                             {
-                                dropContent.map((itm) => {
+                                service.map((itm) => {
                                     return (
                                         <>
-                                            <Link to='/service'>
-                                                <li className='inner-li'>{itm.name}</li>
+                                            <Link to={`/service/${itm.key}`} onClick={() => { setMenuToggle(false) }}>
+                                                <li className='inner-li'>{itm.value}</li>
                                             </Link>
                                         </>
                                     )
@@ -270,7 +188,7 @@ function Navbar() {
                             <li>Blog</li>
                         </Link>
                         <Link to='/contect'>
-                            <li>Contect us</li>
+                            <li>Contact us</li>
                         </Link>
                         {/* input */}
                         <li>

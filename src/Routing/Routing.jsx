@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import { Home } from "../Components/ScreenComponent/Home/Home";
 import { About } from "../Components/ScreenComponent/About/About";
 import { PhotoMain } from "../Components/ScreenComponent/Photos/PhotoMain";
@@ -9,7 +9,6 @@ import { BlogMain } from "../Components/ScreenComponent/Blog/BlogMain";
 import { DetailMain } from "../Components/ScreenComponent/ServiceDetailSection/DetailMain";
 import { BlogDetailMainSection } from "../Components/ScreenComponent/Blog/BlogDetailSection/BlogDetailMainSection";
 import { BlogCategoryMain } from "../Components/ScreenComponent/Blog/BlogDetailSection/BlogCategory/BlogCategoryMain";
-
 
 function Routing() {
     return (
